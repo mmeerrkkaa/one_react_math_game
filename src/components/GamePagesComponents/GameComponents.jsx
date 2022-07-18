@@ -49,7 +49,7 @@ const GameComponents = ( {timers, stopTimers, resetTimers} ) => {
             setShow(true)
             setTimeout(() => {
                 setShow(false)
-            }, 3000)
+            }, 2000)
             setAnswer("")
             setStopTimer(false);
 

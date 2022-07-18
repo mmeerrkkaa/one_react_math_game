@@ -5,7 +5,7 @@ class Log:
 		self.log = {}
 
 	def addLog(self, example, correct, result, time, difficulty):
-		self.log[len(self.log) + 1 if len(self.log) == 0 else 1] = {
+		self.log[len(self.log) + 1 if len(self.log) != 0 else 1] = {
 			"example": example,
 			"correct": correct,
 			"result": result,

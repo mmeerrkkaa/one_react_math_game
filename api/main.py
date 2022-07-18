@@ -68,4 +68,7 @@ def send_answer():
         return json.dumps({'result': checkanswer, 'message': "Неправильный ответ!"})
 
 
+@app.route('/getLogs')
+def get_logs():
+    return json.dumps({'logs': game.log.getLog()})
 
