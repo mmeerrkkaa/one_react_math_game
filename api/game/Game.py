@@ -27,7 +27,7 @@ class Game:
 				operators.append(option)
 		return random.choice(operators)
 
-	def checkanswer(self, answer):
+	def checkanswer(self, answer, time):
 		OPERATORS = {
             "plus": "+",
             "minus": "-",
@@ -38,12 +38,11 @@ class Game:
 		result = eval(str(self.current_example[0]) + str(OPERATORS[self.current_example[2]]) + str(self.current_example[1]))
 
 		self.stats.addGame()
-		if answer == result:
+		self.log.addLog(self.current_example, answer, result, time, self.settings.difficulty)
+		if answer == float(result):
 			self.stats.addWin()
-			self.log.addLog(self.current_example, True, result, 1, self.settings.difficulty)
 			return True
 		else:
 			self.stats.addLoss()
-			self.log.addLog(self.current_example, False, result, 0, self.settings.difficulty)
 			return result
 

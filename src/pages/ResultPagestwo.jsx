@@ -40,12 +40,6 @@ const ResultPages = () => {
     }, []);
 
 
-    const readLogs = () => {
-        for (const [key, value] of Object.entries(logs)) {
-            console.log(key, value);
-        }
-    }
-
     const returnCard = (log) => {
         const OPERATORS = {"plus": "+", "minus": "-", "multiply": "*", "divide": "/"};
         let result = eval(`${log.example[0]} ${OPERATORS[log.example[2]]} ${log.example[1]}`);
@@ -71,36 +65,32 @@ const ResultPages = () => {
     }
 
 
+
+
     return (
         <>
-            <div className="row">
-                <div className="col-md-12">
-                    <div className="card">
-                        <div className="card-header">
-                            <h3>Логи</h3>
-                        </div>
-                        <div className="card-body">
-                            <table className="table table-striped">
-                                <thead>
-                                <tr>
-                                    <th>Пример</th>
-                                    <th>Ваш ответ</th>
-                                    <th>Правильный ответ</th>
-                                    <th>Время</th>
-                                    <th>Сложность</th>
-                                    <th>Правильно?</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-
-                                {returnLogs()}
-
-                                </tbody>
-                            </table>
-                        </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-md-12">
+                        <table className="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Выражение</th>
+                                <th>Правильный ответ</th>
+                                <th>Ваш ответ</th>
+                                <th>Время</th>
+                                <th>Сложность</th>
+                                <th>Результат</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {returnLogs()}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
+
         </>
     );
 };

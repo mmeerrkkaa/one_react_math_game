@@ -10,7 +10,7 @@ const ButtonsSaveComponent = ( {settings} ) => {
         setOperators(settings.operators);
     }, [settings.difficulty, settings.operators]);
 
-    const ClickButton = () => {
+    const ClickButton = (e) => {
         fetch('/saveSettings', {
             method: 'POST',
             headers: {
@@ -22,6 +22,11 @@ const ButtonsSaveComponent = ( {settings} ) => {
             })
         }).then(response => response.json()).then(data => {
             console.log(data);
+            // Поменять цвет кнопки
+            e.target.style.backgroundColor = '#00ff00';
+            setTimeout(() => {
+                e.target.style.backgroundColor = '#0d6efd';
+            }, 500)
         }
         );
     }
@@ -30,7 +35,7 @@ const ButtonsSaveComponent = ( {settings} ) => {
         <div>
             <div className="row">
                 <div className="col-md-12">
-                    <button onClick={ClickButton} type="submit" className="btn btn-primary">Сохранить</button>
+                    <button onClick={(e) => ClickButton(e)} type="submit" className="btn btn-primary btn" id='saveSettings'>Сохранить</button>
                 </div>
             </div>
         </div>

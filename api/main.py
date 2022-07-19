@@ -55,13 +55,12 @@ def send_answer():
     if answer == "":
         answer = 0
     else:
-        answer = int(answer)
+        answer = float(answer)
 
     timer = int(data['timer'])
 
-    checkanswer = game.checkanswer(answer)
+    checkanswer = game.checkanswer(answer, timer)
     game.setExample()
-    game.log.addLog(game.current_example, True if checkanswer else False, checkanswer, timer, game.settings.difficulty)
     if checkanswer == True:
         return json.dumps({'result': True, 'message': "Правильный ответ!"})
     else:

@@ -1,7 +1,7 @@
 class Settings:
 	def __init__(self):
-		self.difficulty = 3
-		self.options = {"plus": True, "minus": False, "multiply": True, "divide": False}
+		self.difficulty = 1
+		self.options = {"plus": True, "minus": False, "multiply": False, "divide": False}
 
 
 	def set_difficulty(self, difficulty):

@@ -19,7 +19,7 @@ const TimerPages = ( { updateTime, stopTimer, resetTimers}) => {
         setInterval(() => {
             addTimer()
         }
-        , 1000)}, [])
+        , 1000)}, [timer])
 
 
     useEffect(() => {
